@@ -5,4 +5,7 @@ class Solution(object):
         :type b: int
         :rtype: int
         """
-        
+        for _ in xrange(32):
+            a, b = a^b, (a&b)<<1
+        return a if a & 0x80000000 else a & 0xffffffff
+print(Solution().getSum(-1,2))
